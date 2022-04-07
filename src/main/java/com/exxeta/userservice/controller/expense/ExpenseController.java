@@ -17,14 +17,15 @@ public class ExpenseController {
     private final CustomJwtAuthenticationFilter filter;
 
     public ExpenseController(ExpenseServiceProxy proxy,
-                             CustomJwtAuthenticationFilter filter) {this.proxy = proxy;
+                             CustomJwtAuthenticationFilter filter) {
+        this.proxy = proxy;
         this.filter = filter;
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/accountName/{accountName}")
     public String postNewExpenses(@PathVariable String accountName,
-                                 @RequestBody List<ExpenseFromFrontend> expensesFromFrontend) throws IOException {
+                                 @RequestBody List<ExpenseFromFrontend> expensesFromFrontend) {
         long userId = filter.getUserIdFromToken();
         return proxy.postNewExpenses(userId, accountName, expensesFromFrontend);
     }
