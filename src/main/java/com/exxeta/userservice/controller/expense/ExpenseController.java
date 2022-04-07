@@ -29,14 +29,6 @@ public class ExpenseController {
         return proxy.postNewExpenses(userId, accountName, expensesFromFrontend);
     }
 
-//    private void saveAllNewExpenses(List<ExpenseFromFrontend> expenseFromFrontend) {
-//        try {
-//            expenseService.saveAllNewExpenses(expenseFromFrontend);
-//        } catch (Exception exception) {
-//            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage());
-//        }
-//    }
-
     @GetMapping
     public String getAllExpenses() {
         long userId = filter.getUserIdFromToken();
