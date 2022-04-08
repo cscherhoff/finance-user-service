@@ -13,13 +13,17 @@ import java.util.List;
 @FeignClient(name = "expense-service")
 public interface ExpenseServiceProxy {
 
-    String path = "/expense/user/{userId}";
+    String expensePath = "/expense/user/{userId}";
+    String categoriePath = "/categories/user/{userId}";
 
-    @PostMapping(path + "/accountName/{accountName}")
+    @PostMapping(expensePath + "/accountName/{accountName}")
     String postNewExpenses(@PathVariable long userId, @PathVariable String accountName,
                            @RequestBody List<ExpenseFromFrontend> expensesFromFrontend);
 
-    @GetMapping(path)
+    @GetMapping(expensePath)
     String getAllExpenses(@PathVariable long userId);
+
+    @GetMapping(categoriePath)
+    String getAllCategories(@PathVariable long userId);
 
 }
