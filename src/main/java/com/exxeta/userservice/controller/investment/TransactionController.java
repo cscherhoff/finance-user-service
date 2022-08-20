@@ -27,4 +27,9 @@ public class TransactionController {
         return investmentServiceProxy.addNewTransaction(userId, transaction);
     }
 
+    @GetMapping(path = "/transactions")
+    public String getAllTransactions() {
+        long userId = filter.getUserIdFromToken();
+        return investmentServiceProxy.getAllTransactions(userId);
+    }
 }

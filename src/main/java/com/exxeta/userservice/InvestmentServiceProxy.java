@@ -34,4 +34,7 @@ public interface InvestmentServiceProxy {
 
     @PostMapping(transactionPath + "/transaction")
     String addNewTransaction(@PathVariable long userId, @RequestBody Transaction transaction);
+
+    @GetMapping(transactionPath + "/transaction")
+    String getAllTransactions(@PathVariable long userId);
 }
