@@ -37,4 +37,7 @@ public interface InvestmentServiceProxy {
 
     @GetMapping(transactionPath + "/transaction")
     String getAllTransactions(@PathVariable long userId);
+
+    @GetMapping
+    String getAllSecurities(@PathVariable long userId);
 }
