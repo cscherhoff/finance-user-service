@@ -2,7 +2,7 @@ package com.exxeta.userservice.controller.investment;
 
 import com.exxeta.userservice.InvestmentServiceProxy;
 import com.exxeta.userservice.config.CustomJwtAuthenticationFilter;
-import com.exxeta.userservice.model.investment.Transaction;
+import com.exxeta.userservice.model.investment.TransactionDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +22,7 @@ public class TransactionController {
 
     @PostMapping(path = "/transaction")
     @ResponseStatus(HttpStatus.CREATED)
-    public String addNewTransaction(@Valid @RequestBody Transaction transaction) {
+    public String addNewTransaction(@Valid @RequestBody TransactionDto transaction) {
         long userId = filter.getUserIdFromToken();
         return investmentServiceProxy.addNewTransaction(userId, transaction);
     }

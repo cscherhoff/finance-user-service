@@ -2,7 +2,7 @@ package com.exxeta.userservice;
 
 
 import com.exxeta.userservice.model.investment.Investment;
-import com.exxeta.userservice.model.investment.Transaction;
+import com.exxeta.userservice.model.investment.TransactionDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,7 +33,7 @@ public interface InvestmentServiceProxy {
     String getAllProfits(@PathVariable long userId);
 
     @PostMapping(transactionPath + "/transaction")
-    String addNewTransaction(@PathVariable long userId, @RequestBody Transaction transaction);
+    String addNewTransaction(@PathVariable long userId, @RequestBody TransactionDto transaction);
 
     @GetMapping(transactionPath + "/transaction")
     String getAllTransactions(@PathVariable long userId);
