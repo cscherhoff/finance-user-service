@@ -14,7 +14,7 @@ spec:
         app: user-service
     spec:
       containers:
-      - image: fragg90/user_service:1.1.0
+      - image: fragg90/user_service:1.1.1
         name: user-service
         env:
         - name: spring.datasource.url
