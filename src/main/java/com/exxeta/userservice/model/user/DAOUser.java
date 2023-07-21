@@ -1,6 +1,6 @@
 package com.exxeta.userservice.model.user;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "user")
